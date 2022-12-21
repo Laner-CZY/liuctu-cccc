@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script src="echarts.js"></script>
+    <script src="wonderland.js"></script>
+  </head>
+  <body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      // 指定图表的配置项和数据
+      var option = {
+      tooltip: {
+      trigger: "item",
+      triggerOn: "mousemove"},
+      series: [{
+      type: "sankey",
+      focus:'none',
+      focus:'adjacency'}],
+       data: [
+                {name: "A"},
+                {name: "B"},
+                {name: "C"}, 
+                {name: "D"},
+                {name: "E"}, 
+                {name: "F"},
+            ],
+    links: [
+    { source: "1'",
+      target: "Bio-conversion",
+      value: 10
+    },
+    { source: "2",
+      target: "Liquid",
+      value: 30
+    }, 
+    {  source: "3",
+      target: "Losses",
+      value: 50
+    }, 
+    {  source: "4",
+      target: "Solid",
+      value: 18
+    }, 
+    {  source: "5",
+      target: "Gas",
+      value: 45
+    }, 
+    {  source: "6",
+      target: "Liquid",
+      value: 35
+    },]
+
+      }
+      // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option)
+    </script>
+  </body>
+</html>
